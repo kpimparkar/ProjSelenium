@@ -31,3 +31,8 @@ class LinkedInJobsPage():
         self.searchBtn = self.driver.find_element_by_class_name(self.searchButtonClass)
         self.searchBtn.click()
 
+def main():
+    print("\nCurrently, this module can't be called independently.")
+
+if __name__ == "__main__":
+    main()

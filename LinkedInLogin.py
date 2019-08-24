@@ -39,7 +39,7 @@ def main():
 
     login.openUrl(driver)
     driver.maximize_window()
-    login.enterDetails('kpimparkar@gmail.com','14Vrindavan')
+    login.enterDetails(UID,PWD)
     login.login()
     print(login.url)
     ## To be shifted to next .py
