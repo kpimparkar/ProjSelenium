@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 import LinkedInJobs
+import JobListPage
 from selenium.webdriver.support.ui import Select
 from pprint import pprint
 
@@ -41,7 +42,7 @@ def main():
 
     login.openUrl(driver)
     driver.maximize_window()
-    login.enterDetails(UID,PWD)
+    login.enterDetails(UID, PWD)
     login.login()
     print(login.url)
     ## To be shifted to next .py
@@ -56,16 +57,14 @@ def main():
     jobsPage.enterSearchDetails('Python','United States')
     jobsPage.searchJobs()
 
-    dropDown = driver.find_element_by_xpath("//form[@class='search-s-facet__form']/button")
-    dropDown.click()
-    option = driver.find_element_by_xpath("//li[@class ='search-s-facet-value']/label/p/span[text()='Past 24 hours']")
-    option.click()
-    applyFilter = driver.find_element_by_xpath("//button[starts-with(@class,'facet-collection-list__apply-button')]")
-    applyFilter.click()
+    jobList = JobListPage.JobListPage(driver)
+    jobList.inquireJobs()
+    jobList.fetchJobList()
 
-    # dropDown.select_by_index(0)
+
     #time.sleep(5)
     #driver.close()
+    #
 
 
 if __name__=="__main__":
